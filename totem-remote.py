@@ -13,7 +13,7 @@ log.setLevel(logging.ERROR)
 app = Flask(__name__, static_url_path='/static')
 
 class StarterPlugin (GObject.Object, Peas.Activatable):
-    __gtype_name__ = 'StarterPlugin'
+    __gtype_name__ = 'TotemRemote'
 
     object = GObject.property (type = GObject.Object)
 
