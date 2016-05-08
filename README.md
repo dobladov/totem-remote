@@ -31,9 +31,13 @@ On smartphones the website can be added to the start screen with this logo, both
 
 ## ToDo
 
-- [ ] Set Volume
-- [ ] Toggle Sound
-- [ ] Toggle Fullscreen
+- [x] Set Volume
+- [x] Toggle Sound
+- [x] Toggle Fullscreen
+- [ ] Improve Icons
+- [ ] Faster feedback buttons
+- [ ] User Auth
+- [ ] Config file
 
 ## Documentation
 

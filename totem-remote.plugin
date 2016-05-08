@@ -1,0 +1,11 @@
+[Plugin]
+Loader=python3
+Module=totem-remote
+IAge=1
+Name=Totem Remote
+Name[es]=Totem Remoto
+Description=Controls Totem from a website.
+Description[es]=Controla Totem desde una web.
+Authors=Daniel Doblado <daniel doblado@gmail.com> @dobladov
+Copyright=MIT
+Website=https://github.com/dobladov/totem-remote
