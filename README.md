@@ -24,10 +24,19 @@ Open a video in Totem and load the web interface from the IP address `http://192
 
 ![Interface](https://my.mixtape.moe/wdvdjb.png)
 
-
 On smartphones the website can be added to the start screen with this logo, both in Chrome and Firefox.
 
 ![Logo](https://my.mixtape.moe/ikaflp.png)
+
+
+## Configuration
+
+**Username and password**
+
+Change the values on the file `totem-remote.py`
+
+        return username == 'admin' and password == 'secret'
+
 
 ## ToDo
 
@@ -36,8 +45,10 @@ On smartphones the website can be added to the start screen with this logo, both
 - [x] Toggle Fullscreen
 - [ ] Improve Icons
 - [ ] Faster feedback buttons
-- [ ] User Auth
+- [x] User basic Auth
 - [ ] Config file
+- [ ] Auth error template
+- [ ] Password encrypt 
 
 ## Documentation
 
