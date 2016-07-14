@@ -45,10 +45,11 @@ Change the values on the file `totem-remote.py`
 - [x] Toggle Fullscreen
 - [ ] Improve Icons
 - [ ] Faster feedback buttons
-- [x] User basic Auth
+- [ ] User basic Auth
 - [ ] Config file
 - [ ] Auth error template
 - [ ] Password encrypt 
+
 
 ## Documentation
 

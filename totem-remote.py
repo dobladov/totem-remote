@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from gi.repository import GObject, Peas
-from flask import Flask, render_template, jsonify, request, Response
+from flask import Flask, render_template, jsonify
+# from flask import Flask, render_template, jsonify, request, Response
 from threading import Thread
-from functools import wraps
+# from functools import wraps
 import os
 
 import logging
@@ -30,72 +31,72 @@ class StarterPlugin (GObject.Object, Peas.Activatable):
     def do_activate (self):
         self._totem = self.object
 
-        def check_auth(username, password):
-            return username == 'admin' and password == 'secret'
+        # def check_auth(username, password):
+        #     return username == 'admin' and password == 'secret'
 
-        def authenticate():
-            return Response('Could not verify your credentials', 401,
-                {'WWW-Authenticate': 'Basic realm="Login Required"'})
+        # def authenticate():
+        #     return Response('Could not verify your credentials', 401,
+        #         {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
-        def requires_auth(f):
-            @wraps(f)
-            def decorated(*args, **kwargs):
-                auth = request.authorization
-                if not auth or not check_auth(auth.username, auth.password):
-                    return authenticate()
-                return f(*args, **kwargs)
-            return decorated
+        # def requires_auth(f):
+        #     @wraps(f)
+        #     def decorated(*args, **kwargs):
+        #         auth = request.authorization
+        #         if not auth or not check_auth(auth.username, auth.password):
+        #             return authenticate()
+        #         return f(*args, **kwargs)
+        #     return decorated
  
         @app.route("/")
-        @requires_auth
+        # @requires_auth
         def home():
             return render_template('home.html')
 
 
         @app.route("/togglePlay")
-        @requires_auth
+        # @requires_auth
         def togglePlay():
             self._totem.play_pause()
             return jsonify(playing = True if self._totem.is_playing() else False)
           
 
         @app.route("/next")
-        @requires_auth
+        # @requires_auth
         def next():
             self._totem.seek_next()
             return jsonify(info="Playing the next")
 
 
         @app.route("/previous")
-        @requires_auth
+        # @requires_auth
         def previous():
             self._totem.seek_previous()
             return jsonify(info="Playing the previous")
 
 
         @app.route("/toggleFullscreen")
-        @requires_auth
+        # @requires_auth
         def toggleFullscreen():
             os.system('totem --fullscreen')
             return jsonify(info="Toggled fullscreen")
 
 
         @app.route("/exit")
-        @requires_auth
+        # @requires_auth
         def exit():
             self._totem.exit()
             return jsonify(info='Close Totem')
 
 
         @app.route("/seekTime/<time>")
-        @requires_auth
+        # @requires_auth
         def seekTime(time):
             self._totem.seek_time(int(time), False)   
             return jsonify(currentTime = self._totem.get_property('current_time'))
 
 
         @app.route("/info")
-        @requires_auth
+        # @requires_auth
         def info():
             info = {}
             info['name'] = self._totem.get_property('current-display-name')
@@ -112,35 +113,35 @@ class StarterPlugin (GObject.Object, Peas.Activatable):
 
 
         @app.route("/volumeUp")
-        @requires_auth
+        # @requires_auth
         def volumeUp():
             os.system('totem --volume-up')
             return jsonify(info='Volume UP')
 
 
         @app.route("/volumeDown")
-        @requires_auth
+        # @requires_auth
         def volumeDown():
             os.system('totem --volume-down')
             return jsonify(info='Volume Down')
 
 
         @app.route("/seekFWD")
-        @requires_auth
+        # @requires_auth
         def seekFWD():
             os.system('totem --seek-fwd')
             return jsonify(info='Seek Forward')
 
 
         @app.route("/seekBWD")
-        @requires_auth
+        # @requires_auth
         def seekBWD():
             os.system('totem --seek-bwd')
             return jsonify(info='Seek Backwards')
 
 
         @app.route("/toggleMute")
-        @requires_auth
+        # @requires_auth
         def toggleMute():
             sound = self._totem.get_volume()
 
