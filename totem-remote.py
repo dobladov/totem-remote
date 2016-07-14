@@ -5,6 +5,7 @@ from flask import Flask, render_template, jsonify
 # from flask import Flask, render_template, jsonify, request, Response
 from threading import Thread
 # from functools import wraps
+from yaml import load
 import os
 
 import logging
@@ -30,9 +31,12 @@ class StarterPlugin (GObject.Object, Peas.Activatable):
         
     def do_activate (self):
         self._totem = self.object
+        
+        with open(self.plugin_info.get_data_dir() + "/config.yml", 'r') as ymlfile:
+            self.cfg = load(ymlfile)
 
         # def check_auth(username, password):
-        #     return username == 'admin' and password == 'secret'
+        #     return username == self.cfg["access"]["user"] and password == self.cfg["access"]["pass"]
 
         # def authenticate():
         #     return Response('Could not verify your credentials', 401,
@@ -155,7 +159,7 @@ class StarterPlugin (GObject.Object, Peas.Activatable):
             return jsonify(sound=sound)
 
 
-        t = Thread(name='flaskServer', target=app.run, kwargs={'port':8085, 'host':'0.0.0.0'})
+        t = Thread(name='flaskServer', target=app.run, kwargs={'port':self.cfg["server"]["port"], 'host':self.cfg["server"]["host"]})
         t.start();
 
         print("Plugin Totem-Remote enabled")

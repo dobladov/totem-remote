@@ -46,7 +46,7 @@ Change the values on the file `totem-remote.py`
 - [x] Improve Icons
 - [x] Faster feedback buttons
 - [ ] User basic Auth
-- [ ] Config file
+- [x] Config file
 - [ ] Auth error template
 - [ ] Password encrypt 
 
