@@ -43,7 +43,7 @@ Change the values on the file `totem-remote.py`
 - [x] Set Volume
 - [x] Toggle Sound
 - [x] Toggle Fullscreen
-- [ ] Improve Icons
+- [x] Improve Icons
 - [ ] Faster feedback buttons
 - [ ] User basic Auth
 - [ ] Config file
