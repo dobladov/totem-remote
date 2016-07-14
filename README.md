@@ -44,7 +44,7 @@ Change the values on the file `totem-remote.py`
 - [x] Toggle Sound
 - [x] Toggle Fullscreen
 - [x] Improve Icons
-- [ ] Faster feedback buttons
+- [x] Faster feedback buttons
 - [ ] User basic Auth
 - [ ] Config file
 - [ ] Auth error template

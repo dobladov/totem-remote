@@ -1,94 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Totem Remote</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Totem Remote</title>
 
-	<meta name="author" content="@dobladov">
-	<meta name="theme-color" content="#59574e">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="meta-apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="author" content="@dobladov">
+    <meta name="theme-color" content="#59574e">
 
-	<link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/remote256.png')  }}" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="meta-apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-	<link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/remote256.png')  }}" />
-	<link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('static', filename='icons/remote72.png')  }}" />
-	<link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='icons/remote114.png')  }}" />
-	<link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('static', filename='icons/remote144.png')  }}" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/remote256.png')  }}" />
 
-	<link rel="stylesheet" href="{{ url_for('static', filename='libs/normalize.css')  }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/ambiance.css')  }}">
-	
-	<script src="{{ url_for('static', filename='libs/jquery-2.2.3.min.js')  }}"></script>
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/remote256.png')  }}" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('static', filename='icons/remote72.png')  }}" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='icons/remote114.png')  }}" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('static', filename='icons/remote144.png')  }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='libs/normalize.css')  }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ambiance.css')  }}">
+
+    <script src="{{ url_for('static', filename='libs/jquery-2.2.3.min.js')  }}"></script>
 
 </head>
+
 <body>
-	
-<header>
-	<h2>Totem Remote</h2>
-</header>
 
-<main class="container">
+    <header>
+        <h2>Totem Remote</h2>
+    </header>
 
-	<div id="info">
-		<h4 id="name"></h4>
-	</div>
+    <main class="container">
 
-	<div id="auxControls">
+        <div id="info">
+            <h4 id="name"></h4>
+        </div>
 
-		<ul class="clearUl">
-			<li><button id="exit"></button></li>
-			<li><button id="toggleMute"></button>	</li>
-			<li><button id="toggleFullscreen"></button></li>
-		</ul>
-		
-	</div>
+        <div id="auxControls">
 
-	<div id="volumeBox">
+            <ul class="clearUl">
+                <li><button id="exit"></button></li>
+                <li><button id="toggleMute"></button> </li>
+                <li><button id="toggleFullscreen"></button></li>
+            </ul>
 
-		<ul class="clearUl">
-			<li><span id="volumeDown"></span></li>
-			<li id="volumeElement"><input id="volume" type="range" min=0 max=1 step="0.1" disabled/></li>
-			<li><span id="volumeUp"></span></li>
-		</ul>	
-		
-	</div>
+        </div>
 
- 	<div id="controls">
-	
-		<div id="progressDiv">
-			<input id="progress" type="range" step="5" />
-		</div>
+        <div id="volumeBox">
 
-		<ul class="clearUl">
-			
-			<li id="seekBWD"><span id="current" class="time">0:24</span></li>
-			<li>
-				<ul id="ctrlButton" class="clearUl">
-					<li>
-						<button id="previous"></button>
-					</li>
-					<li>
-						<button id="play"></button>
-					</li>
-					<li>
-						<button id="next"></button>
-					</li>
-				</ul>
-			</li>
+            <ul class="clearUl">
+                <li><span id="volumeDown"></span></li>
+                <li id="volumeElement"><input id="volume" type="range" min=0 max=1 step="0.1" disabled/></li>
+                <li><span id="volumeUp"></span></li>
+            </ul>
 
-			<li id="seekFWD"><span id="remaining" class="time">2:03</span></li>		
-	
-		</ul>
-		
-	</div>
+        </div>
 
-</main>
+        <div id="controls">
 
-<script src="{{ url_for('static', filename='js/main.js')  }}"></script>
+            <div id="progressDiv">
+                <input id="progress" type="range" step="5" />
+            </div>
+
+            <ul class="clearUl">
+
+                <li id="seekBWD"><span id="current" class="time">0:24</span></li>
+                <li>
+                    <ul id="ctrlButton" class="clearUl">
+                        <li>
+                            <button id="previous"></button>
+                        </li>
+                        <li>
+                            <button id="togglePlay"></button>
+                        </li>
+                        <li>
+                            <button id="next"></button>
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="seekFWD"><span id="remaining" class="time">2:03</span></li>
+
+            </ul>
+
+        </div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js')  }}"></script>
 
 </body>
+
 </html>

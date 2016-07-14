@@ -78,7 +78,9 @@ class StarterPlugin (GObject.Object, Peas.Activatable):
         # @requires_auth
         def toggleFullscreen():
             os.system('totem --fullscreen')
-            return jsonify(info="Toggled fullscreen")
+            # return jsonify(info="Toggled fullscreen")
+            return jsonify(fullscreen = True if self._totem.get_property('fullscreen') else False)
+
 
 
         @app.route("/exit")
@@ -116,28 +118,28 @@ class StarterPlugin (GObject.Object, Peas.Activatable):
         # @requires_auth
         def volumeUp():
             os.system('totem --volume-up')
-            return jsonify(info='Volume UP')
+            return jsonify(volume = self._totem.get_volume())
 
 
         @app.route("/volumeDown")
         # @requires_auth
         def volumeDown():
             os.system('totem --volume-down')
-            return jsonify(info='Volume Down')
+            return jsonify(volume = self._totem.get_volume())
 
 
         @app.route("/seekFWD")
         # @requires_auth
         def seekFWD():
             os.system('totem --seek-fwd')
-            return jsonify(info='Seek Forward')
+            return jsonify(time = self._totem.get_property('current_time'), length = self._totem.get_property('stream-length'))
 
 
         @app.route("/seekBWD")
         # @requires_auth
         def seekBWD():
             os.system('totem --seek-bwd')
-            return jsonify(info='Seek Backwards')
+            return jsonify(time = self._totem.get_property('current_time'), length = self._totem.get_property('stream-length'))
 
 
         @app.route("/toggleMute")
