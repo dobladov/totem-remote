@@ -165,6 +165,10 @@ header h2 {
     height: 26px;
 }
 
+#controls #controlsBtns {
+    position: relative;
+}
+
 #controls #previous {
     background-image: url('/static/icons/prev.svg');
 }
@@ -183,8 +187,9 @@ header h2 {
 #controls span.time {
     color: #b6b3ab;
     font-weight: bold;
-    position: relative;
-    top: 6px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     text-align: center;
     display: block;
 }
@@ -196,6 +201,26 @@ header h2 {
 #controls #seekFWD {
     float: right;
 }
+
+#controls #remaining {
+    right: 0;
+}
+
+#ctrlButton {
+    position: relative;
+}
+
+#controls #previous {
+    position: absolute;
+    top: 6px;
+    left: -25px;
+}
+
+#controls #next {
+        position: absolute;
+    top: 6px;
+}
+
 
 @media (min-width: 1000px) {
     #info {
